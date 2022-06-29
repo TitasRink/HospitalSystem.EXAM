@@ -16,7 +16,7 @@ namespace HospitalSystem.API.Controllers
         private IPatientServices _patientServices { get; }
         public HospitalSystemController()
         {
-            var context = new ContextDB();
+            var context = new dataDB();
             _departmentServices = new DepartmentServices(context);
             _doctorServices = new DoctorServices(context);
             _patientServices = new PatientServices(context);

@@ -6,7 +6,7 @@ namespace HospitalSystem.Repository.Entities
     public class DepartmentModel
     {
         [Key]
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
