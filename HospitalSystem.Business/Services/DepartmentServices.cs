@@ -7,9 +7,9 @@ namespace HospitalSystem.Business.Services
 {
     public class DepartmentServices : IDepartmentServices
     {
-        private dataDB Con { get; }
+        private DataDB Con { get; }
 
-        public DepartmentServices(dataDB con)
+        public DepartmentServices(DataDB con)
         {
             Con = con;
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HospitalSystem.Repository.ContextDB
 {
-    public class dataDB : DbContext
+    public class DataDB : DbContext
     {
         public DbSet<DepartmentModel> Departments { get; set; }
         public DbSet<DoctorModel> Doctors { get; set; }

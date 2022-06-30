@@ -8,16 +8,16 @@ namespace HospitalSystem.Business.Services
 {
     public class DoctorServices : IDoctorServices
     {
-        private dataDB Con { get; }
+        private DataDB Con { get; }
 
-        public DoctorServices(dataDB con)
+        public DoctorServices(DataDB con)
         {
             Con = con;
         }
 
         public void CreatDoctor(string name, string lastname, int age, int id)
         {
-            DoctorModel doc = new DoctorModel(name, lastname, age, id);
+            DoctorModel doc = new(name, lastname, age, id);
             Con.Add(doc);
             Con.SaveChanges();
         }

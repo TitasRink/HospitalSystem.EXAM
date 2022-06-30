@@ -8,17 +8,27 @@ namespace HospitalSystem.Business.Services
 {
     public class PatientServices : IPatientServices
     {
-        private dataDB Con { get; }
+        private DataDB Con { get; }
 
-        public PatientServices(dataDB con)
+        public PatientServices(DataDB con)
         {
             Con = con;
         }
 
-        public void CreatPatient(string name, string address)
+        public void CreatPatient(string name, string address, int docId)
         {
             PatientModel pat = new PatientModel(name, address);
-            Con.Patients.Add(pat);
+            var deptId = Con.Doctors.Where(x => x.Id == docId).FirstOrDefault().DepartmentModelId;
+            pat.DepartmentModelId = deptId;
+            var dep = Con.Departments
+                .Include(x => x.doctors.Where(x => x.Id == docId))
+                .Include(x => x.patients)
+                .Where(x => x.doctors.Any(x => x.Id == docId))
+                .FirstOrDefault();
+            foreach (var doctor in dep.doctors)
+            {
+                doctor.patients.Add(pat);
+            }
             Con.SaveChanges();
         }
 
@@ -27,10 +37,10 @@ namespace HospitalSystem.Business.Services
             var result = Con.Departments.Include(d => d.patients).FirstOrDefault(d => d.Id == depId).patients.ToList();
             return result;
         }
-        //turi klaidu pataisyti
+
         public List<PatientModel> ShowDocPatients(int docId)
         {
-            return Con.Doctors.Include(d => d.patients).FirstOrDefault(d => d.Id == docId).patients.ToList();
+            return Con.Patients.Where(x=>x.doctors.Any(x=>x.Id==docId)).ToList();
         }
     }
 }

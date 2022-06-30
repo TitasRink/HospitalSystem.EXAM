@@ -12,6 +12,7 @@ namespace HospitalSystem.Repository.Entities
         [Required]
         public string Lastname { get; set; }
         public string Address { get; set; }
+        public int? DepartmentModelId { get; set; }
         public List<DoctorModel> doctors { get; set; }
 
         public PatientModel(string name, string lastname)

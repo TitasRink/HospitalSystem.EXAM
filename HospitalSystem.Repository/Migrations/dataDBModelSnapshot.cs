@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HospitalSystem.Repository.Migrations
 {
-    [DbContext(typeof(dataDB))]
+    [DbContext(typeof(DataDB))]
     partial class dataDBModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

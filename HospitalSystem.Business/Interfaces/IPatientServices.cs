@@ -5,7 +5,7 @@ namespace HospitalSystem.Business.Services
 {
     public interface IPatientServices
     {
-        void CreatPatient(string name, string address);
+        void CreatPatient(string name, string address, int docId);
         List<PatientModel> ShowDepPatients(int depId);
         List<PatientModel> ShowDocPatients(int docId);
     }
