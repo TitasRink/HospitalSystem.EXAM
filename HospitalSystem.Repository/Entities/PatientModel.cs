@@ -8,9 +8,12 @@ namespace HospitalSystem.Repository.Entities
         [Key]
         public int Id { get; set; }
         [Required]
+        [MaxLength(50)]
         public string Name { get; set; }
         [Required]
+        [MaxLength(50)]
         public string Lastname { get; set; }
+        [MaxLength(50)]
         public string Address { get; set; }
         public int? DepartmentModelId { get; set; }
         public List<DoctorModel> doctors { get; set; }

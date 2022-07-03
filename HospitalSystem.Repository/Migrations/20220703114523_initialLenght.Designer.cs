@@ -4,14 +4,16 @@ using HospitalSystem.Repository.ContextDB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HospitalSystem.Repository.Migrations
 {
     [DbContext(typeof(DataDB))]
-    partial class dataDBModelSnapshot : ModelSnapshot
+    [Migration("20220703114523_initialLenght")]
+    partial class initialLenght
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

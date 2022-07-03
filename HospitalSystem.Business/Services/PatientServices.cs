@@ -17,7 +17,7 @@ namespace HospitalSystem.Business.Services
 
         public void CreatPatient(string name, string address, int docId)
         {
-            PatientModel pat = new PatientModel(name, address);
+            PatientModel pat = new (name, address);
             var deptId = Con.Doctors.Where(x => x.Id == docId).FirstOrDefault().DepartmentModelId;
             pat.DepartmentModelId = deptId;
             var dep = Con.Departments

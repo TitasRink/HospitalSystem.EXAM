@@ -39,21 +39,21 @@ namespace HospitalSystem.API.Controllers
         }
 
         [HttpPost("Create Doctor and add to department")]
-        public void CreatDoctor(string name, string address, int age, int depId)
+        public void CreatDoctor(string name, string address, int age, int departmentId)
         {
-            _doctorServices.CreatDoctor(name, address, age, depId);
+            _doctorServices.CreatDoctor(name, address, age, departmentId);
         }
 
         [HttpPost("Create Patient")]
-        public void CreatPatient(string name, string address, int docId)
+        public void CreatPatient(string name, string address, int doctorId)
         {
-            _patientServices.CreatPatient(name, address, docId);
+            _patientServices.CreatPatient(name, address, doctorId);
         }
 
         [HttpPost("Add Patient to Doctor")]
-        public void AddPatient(int docNum, int patNum)
+        public void AddPatient(int doctorNum, int patientNum)
         {
-            _doctorServices.AddPatientToDoctor(docNum, patNum);
+            _doctorServices.AddPatientToDoctor(doctorNum, patientNum);
         }
 
         [HttpGet("List of Departments")]
@@ -69,9 +69,9 @@ namespace HospitalSystem.API.Controllers
         }
 
         [HttpGet("List Patient by Doctor ID")]
-        public List<DoctorModel> GetPatientListFromDoctor(int departmentID)
+        public List<DoctorModel> GetPatientListFromDoctor(int doctorId)
         {
-            return _doctorServices.Doctorinfo(departmentID);
+            return _doctorServices.Doctorinfo(doctorId);
         }
        
         [HttpGet("Show all department patients")]
@@ -81,15 +81,15 @@ namespace HospitalSystem.API.Controllers
         }
 
         [HttpGet("Show all doctor patients")]
-        public List<PatientModel> ShowDocPatients(int docId)
+        public List<PatientModel> ShowDocPatients(int doctorId)
         {
-            return _patientServices.ShowDocPatients(docId);
+            return _patientServices.ShowDocPatients(doctorId);
         }
 
         [HttpDelete("Delete Department by ID")]
-        public void RemoveDepartament(int depId)
+        public void RemoveDepartament(int departmentId)
         {
-            _departmentServices.DeleteDepartament(depId);
+            _departmentServices.DeleteDepartament(departmentId);
         }
     }
 }
